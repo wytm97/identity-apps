@@ -113,7 +113,7 @@ export const EnterpriseIDPCreateWizard: FC<EnterpriseIDPCreateWizardProps> = (
     const [ selectedCertificateFile, setSelectedCertificateFile ] = useState<File>(null);
     const [ selectedCertInputType, setSelectedCertInputType ] = useState<CertificateInputType>("jwks");
     const [ selectedProtocol, setSelectedProtocol ] = useState<AvailableProtocols>("oidc");
-    const [ selectedSamlConfigMode, setSelectedSamlConfigMode ] = useState<SamlConfigurationMode>("file");
+    const [ selectedSamlConfigMode, setSelectedSamlConfigMode ] = useState<SamlConfigurationMode>("manual");
     const [ pastedPEMContent, setPastedPEMContent ] = useState<string>(null);
 
     // Dynamic UI state
@@ -423,27 +423,27 @@ export const EnterpriseIDPCreateWizard: FC<EnterpriseIDPCreateWizardProps> = (
                 placeholder="Enter a Service Provider Entity ID"
                 data-testid={ `${ testId }-form-wizard-saml-entity-id` }
             />
-            <Grid>
-                <Grid.Row columns={ 1 }>
-                    <Grid.Column mobile={ 16 } tablet={ 16 } computer={ 10 }>
-                        <p><b>Mode of configuration</b></p>
-                        <Switcher
-                            data-testid={ `${ testId }-form-wizard-saml-config-switcher` }
-                            className={ "mt-1" }
-                            defaultOptionValue="file"
-                            selectedValue={ selectedSamlConfigMode }
-                            onChange={ ({ value }) => setSelectedSamlConfigMode(value as any) }
-                            options={ [ {
-                                value: "manual",
-                                label: "Manual Configuration",
-                            }, {
-                                value: "file",
-                                label: "File Based Configuration",
-                            } ] }
-                        />
-                    </Grid.Column>
-                </Grid.Row>
-            </Grid>
+            {/*<Grid>*/}
+            {/*    <Grid.Row columns={ 1 }>*/}
+            {/*        <Grid.Column mobile={ 16 } tablet={ 16 } computer={ 10 }>*/}
+            {/*            <p><b>Mode of configuration</b></p>*/}
+            {/*            <Switcher*/}
+            {/*                data-testid={ `${ testId }-form-wizard-saml-config-switcher` }*/}
+            {/*                className={ "mt-1" }*/}
+            {/*                defaultOptionValue="manual"*/}
+            {/*                selectedValue={ selectedSamlConfigMode }*/}
+            {/*                onChange={ ({ value }) => setSelectedSamlConfigMode(value as any) }*/}
+            {/*                options={ [ {*/}
+            {/*                    value: "manual",*/}
+            {/*                    label: "Manual Configuration",*/}
+            {/*                }, {*/}
+            {/*                    value: "file",*/}
+            {/*                    label: "File Based Configuration",*/}
+            {/*                } ] }*/}
+            {/*            />*/}
+            {/*        </Grid.Column>*/}
+            {/*    </Grid.Row>*/}
+            {/*</Grid>*/}
             <Divider hidden/>
             { (selectedSamlConfigMode === "manual") ? (
                     <div>
