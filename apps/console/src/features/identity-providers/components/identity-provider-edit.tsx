@@ -130,7 +130,7 @@ export const EditIdentityProvider: FunctionComponent<EditIdentityProviderPropsIn
                 hideIdPLogoEditField={
                     identityProviderConfig
                         .utils
-                        .hideLogoInputFieldInIdPGeneralSettingsForm(
+                        ?.hideLogoInputFieldInIdPGeneralSettingsForm(
                             identityProvider.federatedAuthenticators.defaultAuthenticatorId
                         )
                 }
